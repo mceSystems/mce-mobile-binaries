@@ -1,0 +1,18 @@
+plugins {
+    id 'maven-publish'
+}
+
+group = 'com.github.mceSystems.mce-mobile-binaries'
+version = project.findProperty('webrtcVersion') ?: '1.1.29400'
+
+publishing {
+    publications {
+        webrtc(MavenPublication) {
+            groupId = group
+            artifactId = 'webrtc'
+            version = version
+
+            artifact("$projectDir/webrtc.aar")
+        }
+    }
+}

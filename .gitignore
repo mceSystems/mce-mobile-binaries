@@ -1,0 +1,17 @@
+.DS_Store
+.build/
+.swiftpm/
+Package.resolved
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# Android / Gradle
+build/
+.gradle/
+local.properties
+
+# Binary artifacts (publish via Releases, don't commit)
+*.xcframework/
+*.xcframework.zip
+*.aar
