@@ -13,6 +13,18 @@ publishing {
             version = version
 
             artifact("$projectDir/webrtc.aar")
+
+            pom {
+                name = 'WebRTC'
+                description = 'Prebuilt WebRTC for Android, redistributed by MCE Systems'
+                url = 'https://github.com/mceSystems/mce-mobile-binaries'
+                licenses {
+                    license {
+                        name = 'BSD-3-Clause'
+                        url = 'https://github.com/mceSystems/mce-mobile-binaries/blob/main/THIRD-PARTY-NOTICES.md'
+                    }
+                }
+            }
         }
     }
 }
