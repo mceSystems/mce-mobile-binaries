@@ -131,8 +131,10 @@ From the repo root. Output is silent on success. Failure modes:
 
 ### 2.9 Commit, push, bump the repo's semver tag
 
+First add the library's licence and the notices of everything built into it to `THIRD-PARTY-NOTICES.md`: a row in the table, and a section with the notice text the binary ships with. The root `LICENSE` covers only MCE's packaging, never the binary.
+
 ```bash
-git add Package.swift
+git add Package.swift THIRD-PARTY-NOTICES.md
 git commit -m "Add <Library> <version>"
 git push origin main
 
@@ -175,10 +177,25 @@ publishing {
             version = version
 
             artifact("$projectDir/<library>.aar")
+
+            pom {
+                name = '<Library>'
+                description = 'Prebuilt <Library> for Android, redistributed by MCE Systems'
+                url = 'https://github.com/mceSystems/mce-mobile-binaries'
+                licenses {
+                    license {
+                        name = '<SPDX id of the library licence>'
+                        url = "https://raw.githubusercontent.com/mceSystems/mce-mobile-binaries/<library>-android-${version}/THIRD-PARTY-NOTICES.md"
+                        comments = '<Library> and its bundled components; see THIRD-PARTY-NOTICES.md for the full set'
+                    }
+                }
+            }
         }
     }
 }
 ```
+
+The `pom` block is what gives the published Maven POM a licence. Its `url` points at the notices file as of the release tag from 3.3, so it keeps matching the artifact.
 
 ### 3.3 Tag the Android release
 
@@ -269,11 +286,13 @@ gh release create webrtc-1.1.29400 webrtc/ios/WebRTC.xcframework.zip \
 
 # 5. edit Package.swift — add product + binary target with url + checksum
 
-# 6. verify
+# 6. add the binary's licence and bundled notices to THIRD-PARTY-NOTICES.md
+
+# 7. verify
 swift package resolve
 
-# 7. push + semver tag
-git add Package.swift && git commit -m "Add WebRTC 1.1.29400"
+# 8. push + semver tag
+git add Package.swift THIRD-PARTY-NOTICES.md && git commit -m "Add WebRTC 1.1.29400"
 git push origin main
 git tag 1.0.0 && git push origin 1.0.0
 ```
