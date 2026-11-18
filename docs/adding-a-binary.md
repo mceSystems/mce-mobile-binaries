@@ -185,7 +185,7 @@ publishing {
                 licenses {
                     license {
                         name = '<SPDX id of the library licence>'
-                        url = "https://raw.githubusercontent.com/mceSystems/mce-mobile-binaries/<library>-android-${version}/THIRD-PARTY-NOTICES.md"
+                        url = 'https://raw.githubusercontent.com/mceSystems/mce-mobile-binaries/<library>-android-<version>/THIRD-PARTY-NOTICES.md'
                         comments = '<Library> and its bundled components; see THIRD-PARTY-NOTICES.md for the full set'
                     }
                 }
@@ -195,7 +195,7 @@ publishing {
 }
 ```
 
-The `pom` block is what gives the published Maven POM a licence. Its `url` points at the notices file as of the release tag from 3.3, so it keeps matching the artifact.
+The `pom` block is what gives the published Maven POM a licence. Its `url` points at the notices file as of the release tag from 3.3, so it keeps matching the artifact. Write the tag out by hand and update it with each release: under JitPack `version` is the whole tag name (`<library>-android-<version>`), so building the URL from `${version}` would repeat the prefix.
 
 ### 3.3 Tag the Android release
 

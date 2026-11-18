@@ -21,7 +21,8 @@ publishing {
                 licenses {
                     license {
                         name = 'BSD-3-Clause'
-                        url = "https://raw.githubusercontent.com/mceSystems/mce-mobile-binaries/webrtc-android-${version}/THIRD-PARTY-NOTICES.md"
+                        // The release tag, written out: under JitPack `version` is already the whole tag name.
+                        url = 'https://raw.githubusercontent.com/mceSystems/mce-mobile-binaries/webrtc-android-1.1.29400/THIRD-PARTY-NOTICES.md'
                         comments = 'WebRTC and its bundled components; see THIRD-PARTY-NOTICES.md for the full set'
                     }
                 }

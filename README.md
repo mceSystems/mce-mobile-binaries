@@ -55,7 +55,7 @@ dependencies {
 
 - **iOS releases** — tag `<library>-<version>` (e.g. `webrtc-1.1.29400`); attach `<Library>.xcframework.zip` as a release asset and reference it from `Package.swift`'s `.binaryTarget(url:checksum:)`.
 - **Android releases** — tag `<library>-android-<version>` (e.g. `webrtc-android-1.1.29400`); JitPack reads the tag and builds on demand.
-- **Repo-level semver tags** (e.g. `v1.0.0`) — bumped when any library is added or updated, so SPM consumers can pin `from: "1.0.0"`.
+- **Repo-level semver tags** (e.g. `1.0.0`) — bumped when any library is added or updated, so SPM consumers can pin `from: "1.0.0"`.
 
 See `webrtc/ios/README.md` and `webrtc/android/README.md` for per-library publish steps.
 
