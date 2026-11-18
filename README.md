@@ -55,6 +55,15 @@ dependencies {
 
 - **iOS releases** — tag `<library>-<version>` (e.g. `webrtc-1.1.29400`); attach `<Library>.xcframework.zip` as a release asset and reference it from `Package.swift`'s `.binaryTarget(url:checksum:)`.
 - **Android releases** — tag `<library>-android-<version>` (e.g. `webrtc-android-1.1.29400`); JitPack reads the tag and builds on demand.
-- **Repo-level semver tags** (e.g. `v1.0.0`) — bumped when any library is added or updated, so SPM consumers can pin `from: "1.0.0"`.
+- **Repo-level semver tags** (e.g. `1.0.0`) — bumped when any library is added or updated, so SPM consumers can pin `from: "1.0.0"`.
 
 See `webrtc/ios/README.md` and `webrtc/android/README.md` for per-library publish steps.
+
+## Licence
+
+Two owners, two sets of terms:
+
+- **MCE's packaging and docs** (`Package.swift`, `jitpack.yml`, the Gradle publish config, the READMEs and `docs/`) are under the BSD 3-Clause licence in [`LICENSE`](LICENSE).
+- **The binaries** (`WebRTC.xcframework`, `webrtc.aar` and every release asset) are third-party works under their authors' own terms, which `LICENSE` does not change. Those terms are in [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
+
+When you add a library, add its licence and notices to `THIRD-PARTY-NOTICES.md` in the same change.
